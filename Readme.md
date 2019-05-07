@@ -1,3 +1,9 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [Form1.cs](./CS/DataFederationExample/Form1.cs) (VB: [Form1.vb](./VB/DataFederationExample/Form1.vb))
+<!-- default file list end -->
+
 # How to Bind a Dashboard to a Federated Data Source Created at Runtime
 
 This example creates at runtime the following data sources:
