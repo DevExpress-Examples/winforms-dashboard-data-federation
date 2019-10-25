@@ -25,18 +25,20 @@ namespace DataFederationExample
             dashboard.DataSources.Add(exceldataSource);
             DashboardObjectDataSource objectDataSource = CreateObjectDataSource();
             dashboard.DataSources.Add(objectDataSource);
-            DashboardFederationDataSource federatedDS = CreateFederatedDataSource(sqliteDataSource, exceldataSource, objectDataSource);
-            dashboard.DataSources.Add(federatedDS);
+            DashboardFederationDataSource federatedDS_Join = CreateFederatedDataSourceJoin(sqliteDataSource, exceldataSource, objectDataSource);
+            dashboard.DataSources.Add(federatedDS_Join);
+            DashboardFederationDataSource federatedDS_Union = CreateFederatedDataSourceUnion(sqliteDataSource, exceldataSource);
+            dashboard.DataSources.Add(federatedDS_Union);
 
             PivotDashboardItem pivot = new PivotDashboardItem();
             pivot.DataMember = "FDS-Created-by-NodeBulder";
-            pivot.DataSource = federatedDS;
+            pivot.DataSource = federatedDS_Join;
             pivot.Rows.AddRange(new Dimension("CategoryName"), new Dimension("ProductName"));
             pivot.Columns.Add(new Dimension("SalesPerson"));
             pivot.Values.Add(new Measure("Extended Price"));
 
             ChartDashboardItem chart = new ChartDashboardItem();
-            chart.DataSource = federatedDS;
+            chart.DataSource = federatedDS_Join;
             chart.DataMember = "FDS-Created-by-NodeBulder";
             chart.Arguments.Add(new Dimension("SalesPerson"));
             chart.Panes.Add(new ChartPane());
@@ -50,9 +52,9 @@ namespace DataFederationExample
             dashboardDesigner1.Dashboard = dashboard;
         }
 
-        private static DashboardFederationDataSource CreateFederatedDataSource(DashboardSqlDataSource sqliteDataSource, DashboardExcelDataSource exceldataSource, DashboardObjectDataSource objectDataSource)
+        private static DashboardFederationDataSource CreateFederatedDataSourceJoin(DashboardSqlDataSource sqliteDataSource, DashboardExcelDataSource exceldataSource, DashboardObjectDataSource objectDataSource)
         {
-            DashboardFederationDataSource federationDS = new DashboardFederationDataSource();
+            DashboardFederationDataSource federationDS = new DashboardFederationDataSource("Federated Data Source (JOIN)");
             Source sqlSource = new Source("sqlite", sqliteDataSource, "SQLite Orders");
             Source excelSource = new Source("excel", exceldataSource, "");
             Source objectSource = new Source("SalesPersonDS", objectDataSource, "");
@@ -93,6 +95,27 @@ namespace DataFederationExample
             federationDS.Queries.Add(mainQueryCreatedByApi);
 
             federationDS.CalculatedFields.Add("FDS-Created-by-NodeBulder", "[Weight] * [Extended Price] / 100", "Score");
+
+            federationDS.Fill(new DevExpress.Data.IParameter[0]);
+            return federationDS;
+        }
+
+        private static DashboardFederationDataSource CreateFederatedDataSourceUnion(DashboardSqlDataSource sqliteDataSource, DashboardExcelDataSource exceldataSource)
+        {
+            DashboardFederationDataSource federationDS = new DashboardFederationDataSource("Federated Data Source (UNION)");
+            Source sqlSource = new Source("sqlite", sqliteDataSource, "SQLite Orders");
+            Source excelSource = new Source("excel", exceldataSource, "");
+
+            UnionNode queryUnionAll = sqlSource.From().Select("OrderID", "OrderDate").Build("OrdersSqlite")
+                .UnionAll(excelSource.From().Select("OrderID", "OrderDate").Build("OrdersExcel"))
+                .Build("OrdersUnionAll");
+
+            UnionNode queryUnion = sqlSource.From().Select("OrderID", "OrderDate").Build("OrdersSqlite")
+                .Union(excelSource.From().Select("OrderID", "OrderDate").Build("OrdersExcel"))
+                .Build("OrdersUnion");
+
+            federationDS.Queries.Add(queryUnionAll);
+            federationDS.Queries.Add(queryUnion);
 
             federationDS.Fill(new DevExpress.Data.IParameter[0]);
             return federationDS;

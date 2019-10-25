@@ -34,23 +34,19 @@
             // 
             // dashboardDesigner1
             // 
-            this.dashboardDesigner1.AllowMaximizeAnimation = true;
-            this.dashboardDesigner1.AllowMaximizeDashboardItems = true;
-            this.dashboardDesigner1.AllowPrintDashboard = true;
-            this.dashboardDesigner1.AllowPrintDashboardItems = true;
-            this.dashboardDesigner1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.dashboardDesigner1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.dashboardDesigner1.Appearance.Options.UseBackColor = true;
             this.dashboardDesigner1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dashboardDesigner1.Location = new System.Drawing.Point(0, 0);
             this.dashboardDesigner1.Name = "dashboardDesigner1";
-            this.dashboardDesigner1.Size = new System.Drawing.Size(1024, 570);
+            this.dashboardDesigner1.Size = new System.Drawing.Size(1022, 568);
             this.dashboardDesigner1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 570);
+            this.ClientSize = new System.Drawing.Size(1022, 568);
             this.Controls.Add(this.dashboardDesigner1);
             this.Name = "Form1";
             this.Text = "Dashboard Bound to Federated Data Source";

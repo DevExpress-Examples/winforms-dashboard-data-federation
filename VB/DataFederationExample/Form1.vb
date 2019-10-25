@@ -23,18 +23,20 @@ Namespace DataFederationExample
 			dashboard.DataSources.Add(exceldataSource)
 			Dim objectDataSource As DashboardObjectDataSource = CreateObjectDataSource()
 			dashboard.DataSources.Add(objectDataSource)
-			Dim federatedDS As DashboardFederationDataSource = CreateFederatedDataSource(sqliteDataSource, exceldataSource, objectDataSource)
-			dashboard.DataSources.Add(federatedDS)
+			Dim federatedDS_Join As DashboardFederationDataSource = CreateFederatedDataSourceJoin(sqliteDataSource, exceldataSource, objectDataSource)
+			dashboard.DataSources.Add(federatedDS_Join)
+			Dim federatedDS_Union As DashboardFederationDataSource = CreateFederatedDataSourceUnion(sqliteDataSource, exceldataSource)
+			dashboard.DataSources.Add(federatedDS_Union)
 
 			Dim pivot As New PivotDashboardItem()
 			pivot.DataMember = "FDS-Created-by-NodeBulder"
-			pivot.DataSource = federatedDS
+			pivot.DataSource = federatedDS_Join
 			pivot.Rows.AddRange(New Dimension("CategoryName"), New Dimension("ProductName"))
 			pivot.Columns.Add(New Dimension("SalesPerson"))
 			pivot.Values.Add(New Measure("Extended Price"))
 
 			Dim chart As New ChartDashboardItem()
-			chart.DataSource = federatedDS
+			chart.DataSource = federatedDS_Join
 			chart.DataMember = "FDS-Created-by-NodeBulder"
 			chart.Arguments.Add(New Dimension("SalesPerson"))
 			chart.Panes.Add(New ChartPane())
@@ -48,8 +50,8 @@ Namespace DataFederationExample
 			dashboardDesigner1.Dashboard = dashboard
 		End Sub
 
-		Private Shared Function CreateFederatedDataSource(ByVal sqliteDataSource As DashboardSqlDataSource, ByVal exceldataSource As DashboardExcelDataSource, ByVal objectDataSource As DashboardObjectDataSource) As DashboardFederationDataSource
-			Dim federationDS As New DashboardFederationDataSource()
+		Private Shared Function CreateFederatedDataSourceJoin(ByVal sqliteDataSource As DashboardSqlDataSource, ByVal exceldataSource As DashboardExcelDataSource, ByVal objectDataSource As DashboardObjectDataSource) As DashboardFederationDataSource
+			Dim federationDS As New DashboardFederationDataSource("Federated Data Source (JOIN)")
 			Dim sqlSource As New Source("sqlite", sqliteDataSource, "SQLite Orders")
 			Dim excelSource As New Source("excel", exceldataSource, "")
 			Dim objectSource As New Source("SalesPersonDS", objectDataSource, "")
@@ -83,6 +85,22 @@ Namespace DataFederationExample
 			federationDS.Queries.Add(mainQueryCreatedByApi)
 
 			federationDS.CalculatedFields.Add("FDS-Created-by-NodeBulder", "[Weight] * [Extended Price] / 100", "Score")
+
+			federationDS.Fill(New DevExpress.Data.IParameter(){})
+			Return federationDS
+		End Function
+
+		Private Shared Function CreateFederatedDataSourceUnion(ByVal sqliteDataSource As DashboardSqlDataSource, ByVal exceldataSource As DashboardExcelDataSource) As DashboardFederationDataSource
+			Dim federationDS As New DashboardFederationDataSource("Federated Data Source (UNION)")
+			Dim sqlSource As New Source("sqlite", sqliteDataSource, "SQLite Orders")
+			Dim excelSource As New Source("excel", exceldataSource, "")
+
+			Dim queryUnionAll As UnionNode = sqlSource.From().Select("OrderID", "OrderDate").Build("OrdersSqlite").UnionAll(excelSource.From().Select("OrderID", "OrderDate").Build("OrdersExcel")).Build("OrdersUnionAll")
+
+			Dim queryUnion As UnionNode = sqlSource.From().Select("OrderID", "OrderDate").Build("OrdersSqlite").Union(excelSource.From().Select("OrderID", "OrderDate").Build("OrdersExcel")).Build("OrdersUnion")
+
+			federationDS.Queries.Add(queryUnionAll)
+			federationDS.Queries.Add(queryUnion)
 
 			federationDS.Fill(New DevExpress.Data.IParameter(){})
 			Return federationDS

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="en-US">
+  <Title Text="Dashboard" />
+  <DataSources>
+    <SqlDataSource Name="SQLite DS" ComponentName="dashboardSqlDataSource1">
+      <Connection Name="nwind" ProviderKey="SQLite">
+        <Parameters>
+          <Parameter Name="database" Value="C:\Users\zaitsev\source\repos\winforms-dashboard-data-federation\CS\DataFederationExample\Data\nwind.db" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="Customers">
+        <Tables>
+          <Table Name="Customers" X="30" Y="30" Width="125" Height="281" />
+        </Tables>
+        <Columns>
+          <Column Table="Customers" Name="CompanyName" />
+          <Column Table="Customers" Name="Phone" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="SQLite DS">
+          <View Name="Customers">
+            <Field Name="CompanyName" Type="String" />
+            <Field Name="Phone" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+    <SqlDataSource Name="SQL Server DS" ComponentName="dashboardSqlDataSource2">
+      <Connection Name="localhost_Northwind_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="Northwind" />
+          <Parameter Name="useIntegratedSecurity" Value="True" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="Shippers">
+        <Tables>
+          <Table Name="Shippers" X="30" Y="30" Width="125" Height="121" />
+        </Tables>
+        <Columns>
+          <Column Table="Shippers" Name="CompanyName" />
+          <Column Table="Shippers" Name="Phone" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="SQL Server DS">
+          <View Name="Shippers">
+            <Field Name="CompanyName" Type="String" />
+            <Field Name="Phone" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+    <SqlDataSource Name="MDB DS" ComponentName="dashboardSqlDataSource3">
+      <Connection Name="nwind" ProviderKey="Access97">
+        <Parameters>
+          <Parameter Name="database" Value="C:\Data\nwind.mdb" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="Suppliers">
+        <Tables>
+          <Table Name="Suppliers" X="30" Y="30" Width="125" Height="301" />
+        </Tables>
+        <Columns>
+          <Column Table="Suppliers" Name="CompanyName" />
+          <Column Table="Suppliers" Name="Phone" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="MDB DS">
+          <View Name="Suppliers">
+            <Field Name="CompanyName" Type="String" />
+            <Field Name="Phone" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" />
+  </LayoutTree>
+</Dashboard>
