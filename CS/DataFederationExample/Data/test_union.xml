@@ -5,7 +5,7 @@
     <SqlDataSource Name="SQLite DS" ComponentName="dashboardSqlDataSource1">
       <Connection Name="nwind" ProviderKey="SQLite">
         <Parameters>
-          <Parameter Name="database" Value="C:\Users\zaitsev\source\repos\winforms-dashboard-data-federation\CS\DataFederationExample\Data\nwind.db" />
+          <Parameter Name="database" Value="Data\nwind.db" />
           <Parameter Name="read only" Value="1" />
           <Parameter Name="generateConnectionHelper" Value="false" />
           <Parameter Name="password" Value="" />
