@@ -1,24 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{68A2242B-5DF5-41A0-9DEB-6F6FE42041C3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <AssemblyName>DataFederationExample</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <OptionExplicit>On</OptionExplicit>
-    <OptionCompare>Binary</OptionCompare>
-    <OptionStrict>Off</OptionStrict>
-    <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -41,54 +41,61 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Charts.v19.2.Core" />
-    <Reference Include="DevExpress.Dashboard.v19.2.Core" />
-    <Reference Include="DevExpress.Dashboard.v19.2.Win" />
-    <Reference Include="DevExpress.Data.v19.2" />
-    <Reference Include="DevExpress.DataAccess.v19.2" />
-    <Reference Include="DevExpress.DataAccess.v19.2.UI" />
-    <Reference Include="DevExpress.Map.v19.2.Core" />
-    <Reference Include="DevExpress.Office.v19.2.Core" />
-    <Reference Include="DevExpress.PivotGrid.v19.2.Core" />
-    <Reference Include="DevExpress.Printing.v19.2.Core" />
-    <Reference Include="DevExpress.RichEdit.v19.2.Core" />
-    <Reference Include="DevExpress.Sparkline.v19.2.Core" />
-    <Reference Include="DevExpress.TreeMap.v19.2.Core" />
-    <Reference Include="DevExpress.Utils.v19.2" />
-    <Reference Include="DevExpress.Utils.v19.2.UI" />
-    <Reference Include="DevExpress.Xpo.v19.2" />
-    <Reference Include="DevExpress.XtraBars.v19.2" />
-    <Reference Include="DevExpress.XtraCharts.v19.2" />
-    <Reference Include="DevExpress.XtraCharts.v19.2.UI" />
-    <Reference Include="DevExpress.XtraCharts.v19.2.Wizard" />
-    <Reference Include="DevExpress.XtraEditors.v19.2" />
-    <Reference Include="DevExpress.XtraGauges.v19.2.Core" />
-    <Reference Include="DevExpress.XtraGauges.v19.2.Presets" />
-    <Reference Include="DevExpress.XtraGauges.v19.2.Win" />
-    <Reference Include="DevExpress.XtraGrid.v19.2" />
-    <Reference Include="DevExpress.XtraLayout.v19.2" />
-    <Reference Include="DevExpress.XtraMap.v19.2" />
-    <Reference Include="DevExpress.XtraPivotGrid.v19.2" />
-    <Reference Include="DevExpress.XtraPrinting.v19.2" />
-    <Reference Include="DevExpress.CodeParser.v19.2" />
-    <Reference Include="DevExpress.XtraReports.v19.2" />
-    <Reference Include="DevExpress.XtraRichEdit.v19.2" />
-    <Reference Include="DevExpress.XtraTreeList.v19.2" />
-    <Reference Include="DevExpress.XtraTreeMap.v19.2" />
+    <Reference Include="DevExpress.Charts.v20.2.Core" />
+    <Reference Include="DevExpress.Dashboard.v20.2.Core" />
+    <Reference Include="DevExpress.Dashboard.v20.2.Win" />
+    <Reference Include="DevExpress.Data.v20.2" />
+    <Reference Include="DevExpress.DataAccess.v20.2" />
+    <Reference Include="DevExpress.DataAccess.v20.2.UI" />
+    <Reference Include="DevExpress.Map.v20.2.Core" />
+    <Reference Include="DevExpress.Office.v20.2.Core" />
+    <Reference Include="DevExpress.PivotGrid.v20.2.Core" />
+    <Reference Include="DevExpress.Printing.v20.2.Core" />
+    <Reference Include="DevExpress.RichEdit.v20.2.Core" />
+    <Reference Include="DevExpress.Sparkline.v20.2.Core" />
+    <Reference Include="DevExpress.TreeMap.v20.2.Core" />
+    <Reference Include="DevExpress.Data.Desktop.v20.2" />
+    <Reference Include="DevExpress.Utils.v20.2" />
+    <Reference Include="DevExpress.Utils.v20.2.UI" />
+    <Reference Include="DevExpress.Xpo.v20.2" />
+    <Reference Include="DevExpress.XtraBars.v20.2" />
+    <Reference Include="DevExpress.XtraCharts.v20.2" />
+    <Reference Include="DevExpress.XtraCharts.v20.2.UI" />
+    <Reference Include="DevExpress.XtraCharts.v20.2.Wizard" />
+    <Reference Include="DevExpress.XtraEditors.v20.2" />
+    <Reference Include="DevExpress.XtraGauges.v20.2.Core" />
+    <Reference Include="DevExpress.XtraGauges.v20.2.Presets" />
+    <Reference Include="DevExpress.XtraGauges.v20.2.Win" />
+    <Reference Include="DevExpress.XtraGrid.v20.2" />
+    <Reference Include="DevExpress.XtraLayout.v20.2" />
+    <Reference Include="DevExpress.XtraMap.v20.2" />
+    <Reference Include="DevExpress.XtraPivotGrid.v20.2" />
+    <Reference Include="DevExpress.XtraPrinting.v20.2" />
+    <Reference Include="DevExpress.CodeParser.v20.2" />
+    <Reference Include="DevExpress.XtraReports.v20.2" />
+    <Reference Include="DevExpress.XtraRichEdit.v20.2" />
+    <Reference Include="DevExpress.XtraTreeList.v20.2" />
+    <Reference Include="DevExpress.XtraTreeMap.v20.2" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.SQLite, Version=1.0.110.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.Core.1.0.110.0\lib\net451\System.Data.SQLite.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.113.1\lib\net451\System.Data.SQLite.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.SQLite.EF6, Version=1.0.110.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.110.0\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.113.0\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.SQLite.Linq, Version=1.0.110.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.110.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.113.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -99,18 +106,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Import Include="Microsoft.VisualBasic" />
-    <Import Include="System.Collections.Generic" />
-    <Import Include="System.Collections" />
-    <Import Include="System.Diagnostics" />
-    <Import Include="System.Linq" />
-    <Import Include="System.Xml.Linq" />
-    <Import Include="System.Data" />
-    <Import Include="System.Drawing" />
-    <Import Include="System.Windows.Forms" />
-    <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SalesPersonData.vb" />
@@ -126,15 +121,17 @@
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Data\Categories.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Data\nwind.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -156,11 +153,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
-  <Import Project="..\packages\System.Data.SQLite.Core.1.0.110.0\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.110.0\build\net451\System.Data.SQLite.Core.targets')" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.113.1\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.113.1\build\net451\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.110.0\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.110.0\build\net451\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.113.1\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.113.1\build\net451\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

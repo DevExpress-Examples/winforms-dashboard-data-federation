@@ -1,4 +1,6 @@
-﻿Namespace DataFederationExample
+﻿Imports Microsoft.VisualBasic
+Imports System
+Namespace DataFederationExample
 	Partial Public Class Form1
 		''' <summary>
 		''' Required designer variable.
@@ -23,36 +25,36 @@
 		''' the contents of this method with the code editor.
 		''' </summary>
 		Private Sub InitializeComponent()
-            Me.dashboardDesigner1 = New DevExpress.DashboardWin.DashboardDesigner()
-            CType(Me.dashboardDesigner1, System.ComponentModel.ISupportInitialize).BeginInit()
-            Me.SuspendLayout()
-            '
-            'dashboardDesigner1
-            '
-            Me.dashboardDesigner1.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
-            Me.dashboardDesigner1.Appearance.Options.UseBackColor = True
-            Me.dashboardDesigner1.Dock = System.Windows.Forms.DockStyle.Fill
-            Me.dashboardDesigner1.Location = New System.Drawing.Point(0, 0)
-            Me.dashboardDesigner1.Name = "dashboardDesigner1"
-            Me.dashboardDesigner1.Size = New System.Drawing.Size(1022, 568)
-            Me.dashboardDesigner1.TabIndex = 0
-            '
-            'Form1
-            '
-            Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-            Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-            Me.ClientSize = New System.Drawing.Size(1022, 568)
-            Me.Controls.Add(Me.dashboardDesigner1)
-            Me.Name = "Form1"
-            Me.Text = "Dashboard Bound to Federated Data Source"
-            CType(Me.dashboardDesigner1, System.ComponentModel.ISupportInitialize).EndInit()
-            Me.ResumeLayout(False)
+			Me.dashboardDesigner1 = New DevExpress.DashboardWin.DashboardDesigner()
+			CType(Me.dashboardDesigner1, System.ComponentModel.ISupportInitialize).BeginInit()
+			Me.SuspendLayout()
+			' 
+			' dashboardDesigner1
+			' 
+			Me.dashboardDesigner1.Appearance.BackColor = System.Drawing.Color.FromArgb((CInt(Fix((CByte(240))))), (CInt(Fix((CByte(240))))), (CInt(Fix((CByte(240))))))
+			Me.dashboardDesigner1.Appearance.Options.UseBackColor = True
+			Me.dashboardDesigner1.Dock = System.Windows.Forms.DockStyle.Fill
+			Me.dashboardDesigner1.Location = New System.Drawing.Point(0, 0)
+			Me.dashboardDesigner1.Name = "dashboardDesigner1"
+			Me.dashboardDesigner1.Size = New System.Drawing.Size(1022, 568)
+			Me.dashboardDesigner1.TabIndex = 0
+			' 
+			' Form1
+			' 
+			Me.AutoScaleDimensions = New System.Drawing.SizeF(6F, 13F)
+			Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+			Me.ClientSize = New System.Drawing.Size(1022, 568)
+			Me.Controls.Add(Me.dashboardDesigner1)
+			Me.Name = "Form1"
+			Me.Text = "Dashboard Bound to Federated Data Source"
+			CType(Me.dashboardDesigner1, System.ComponentModel.ISupportInitialize).EndInit()
+			Me.ResumeLayout(False)
 
-        End Sub
+		End Sub
 
-#End Region
+		#End Region
 
-        Private dashboardDesigner1 As DevExpress.DashboardWin.DashboardDesigner
+		Private dashboardDesigner1 As DevExpress.DashboardWin.DashboardDesigner
 	End Class
 End Namespace
 
