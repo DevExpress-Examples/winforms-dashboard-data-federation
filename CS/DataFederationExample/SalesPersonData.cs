@@ -36,7 +36,7 @@ namespace DataFederationExample
                                     "Robert King", "Nancy Davolio",
                                     "Margaret Peacock", "Laura Callahan",
                                     "Steven Buchanan", "Janet Leverling" };
-            int seed = (int)DateTime.Now.Ticks & 0x0000FFFF;
+            int seed = (int)DateTime.Now.Millisecond;
             Random rand = new Random(seed);
 
             for (int i = 0; i < salesPersons.Length; i++)

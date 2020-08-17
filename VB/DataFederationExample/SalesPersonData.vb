@@ -58,7 +58,7 @@ Namespace DataFederationExample
 		Public Shared Function CreateSourceData() As List(Of SalesPersonData)
 			Dim data As New List(Of SalesPersonData)()
 			Dim salesPersons() As String = { "Andrew Fuller", "Michael Suyama", "Robert King", "Nancy Davolio", "Margaret Peacock", "Laura Callahan", "Steven Buchanan", "Janet Leverling" }
-			Dim seed As Integer = CInt(Fix(DateTime.Now.Ticks))
+			Dim seed As Integer = CInt(Fix(DateTime.Now.Millisecond))
 			Dim rand As New Random(seed)
 
 			For i As Integer = 0 To salesPersons.Length - 1
