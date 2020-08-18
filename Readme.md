@@ -15,7 +15,7 @@ This example creates at runtime the following data sources:
 
 Subsequently [federated data sources](https://docs.devexpress.com/Dashboard/400924) are created to integrate the existing data sources.
 
-This example demonstrates the following query type you can use to create a data federation:
+This example demonstrates the following query types you can use to create a data federation:
 
 * **Join**
     
