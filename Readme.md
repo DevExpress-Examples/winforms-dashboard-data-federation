@@ -27,7 +27,7 @@ This example demonstrates the following query types you can use to create a data
     
 * **Transformation**
 
-    Unfolds complex objects and flattens them in a simple data set. A dashboard does not support collection types. To use data from these fields, transform a data table that contains collection fields into a new flattened data table.
+    If a data source contains a complex column (an object), you can transform its properties to display them as separate columns in a flattened view. If one of the data column is an array, you can unfold its values and display a new data row for every element of the array. When you unfold the column, you can flatten it and create a flattened view.
 
 The application creates a simple dashboard at runtime, binds it to the [DashboardFederationDataSource](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.DashboardFederationDataSource) created with the Join type and displays the dashboard in the [DashboardDesigner](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWin.DashboardDesigner) control.
 
