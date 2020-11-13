@@ -21,13 +21,9 @@ This example demonstrates the following query types you can use to create a data
     
     Combines rows from two or more tables based on a column they share. The join type specifies records that have matching values in both tables.
 
-* **Union**
+* **Union and UnionAll**
 
-    Combines rows from two or more tables into a single data set and removes duplicate rows in merged tables. You can only create a union query for data sources that contain similar columns with the same names. Data types of such columns should be [implicitly converted](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions#implicit-conversions).
-    
-* **UnionAll**
-
-    Operates in the same manner as **Union**, but duplicates rows from different tables when they contain the same data.
+    **Union** combines rows from two or more tables into a single data set and removes duplicate rows in merged tables. **UnionAll** operates in the same manner as **Union**, but duplicates rows from different tables when they contain the same data. You can create a union query for data sources if data types of their columns are [implicitly converted](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions#implicit-conversions).        
     
 * **Transformation**
 
