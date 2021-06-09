@@ -34,7 +34,7 @@ The application creates a simple dashboard at runtime, binds it to the [Dashboar
 
 ![screenshot](images/screenshot.png)
 
-## Documantation
+## Documentation
 
 - [Federated Data Source](https://docs.devexpress.com/Dashboard/400924)
 - [Data Sources](https://docs.devexpress.com/Dashboard/116522)
