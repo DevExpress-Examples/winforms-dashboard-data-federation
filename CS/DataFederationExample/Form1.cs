@@ -8,8 +8,7 @@ using DevExpress.XtraEditors;
 using System;
 
 namespace DataFederationExample {
-    public partial class Form1 : XtraForm
-    {
+    public partial class Form1 : XtraForm {
         public Form1() {
             InitializeComponent();
             dashboardDesigner1.CreateRibbon();
