@@ -1,10 +1,10 @@
 ﻿using DevExpress.DashboardCommon;
-using DevExpress.DataAccess.ConnectionParameters;
 using DevExpress.DataAccess.DataFederation;
+using DevExpress.XtraEditors;
+using DevExpress.DataAccess.ConnectionParameters;
 using DevExpress.DataAccess.Excel;
 using DevExpress.DataAccess.Json;
 using DevExpress.DataAccess.Sql;
-using DevExpress.XtraEditors;
 using System;
 
 namespace DataFederationExample {
