@@ -18,7 +18,7 @@ Namespace DataFederationExample
 		End Sub
 
 		Public Sub InitializeDashboard()
-'			#Region "Provide Data Sources            "
+			#Region "Provide Data Sources            "
 			Dim dashboard As New Dashboard()
 			Dim sqliteDataSource As DashboardSqlDataSource = CreateSQLiteDataSource()
 			dashboard.DataSources.Add(sqliteDataSource)
@@ -34,9 +34,9 @@ Namespace DataFederationExample
 			dashboard.DataSources.Add(federatedDS_Union)
 			Dim federatedDS_Transform As DashboardFederationDataSource = CreateFederatedDataSourceTransform(jsonDataSource)
 			dashboard.DataSources.Add(federatedDS_Transform)
-'			#End Region
+			#End Region
 
-'			#Region "Create a Dashboard"
+			#Region "Create a Dashboard"
 			Dim pivot As New PivotDashboardItem()
 			pivot.DataMember = "FDS-Created-by-NodeBulder"
 			pivot.DataSource = federatedDS_Join
@@ -57,7 +57,7 @@ Namespace DataFederationExample
 			dashboard.RebuildLayout()
 			dashboard.LayoutRoot.Orientation = DashboardLayoutGroupOrientation.Vertical
 			dashboardDesigner1.Dashboard = dashboard
-'			#End Region
+			#End Region
 		End Sub
 
 		Private Shared Function CreateFederatedDataSourceJoin(ByVal sqliteDataSource As DashboardSqlDataSource, ByVal exceldataSource As DashboardExcelDataSource, ByVal objectDataSource As DashboardObjectDataSource) As DashboardFederationDataSource
@@ -66,7 +66,7 @@ Namespace DataFederationExample
 			Dim excelSource As New Source("excel", exceldataSource, "")
 			Dim objectSource As New Source("object", objectDataSource, "")
 
-'			#Region "Use API to join SQL, Excel, and Object Data Sources in a Query"
+			#Region "Use API to join SQL, Excel, and Object Data Sources in a Query"
 			Dim mainQueryCreatedByApi As New SelectNode()
 
 			mainQueryCreatedByApi.Alias = "FDS-Created-by-API"
@@ -85,11 +85,11 @@ Namespace DataFederationExample
 			mainQueryCreatedByApi.Expressions.Add(New SelectColumnExpression() With {.Name = "Extended Price", .Node = excelSourceNode})
 			mainQueryCreatedByApi.SubNodes.Add(New JoinElement(excelSourceNode, JoinType.Inner, "[ExcelDS.OrderID] = [SQLite Orders.OrderID]"))
 			mainQueryCreatedByApi.SubNodes.Add(New JoinElement(objectSourceNode, JoinType.Inner, "[ObjectDS.SalesPerson] = [ExcelDS.Sales Person]"))
-'			#End Region
+			#End Region
 
-'			#Region "Use NodedBuilder to join SQL, Excel, and Object Data Sources in a Query"
+			#Region "Use NodedBuilder to join SQL, Excel, and Object Data Sources in a Query"
 			Dim mainQueryCreatedByNodeBuilder As SelectNode = sqlSource.From().Select("OrderDate", "ShipCity", "ShipCountry").Join(excelSource, "[excel.OrderID] = [sqlite.OrderID]").Select("CategoryName", "ProductName", "Extended Price").Join(objectSource, "[object.SalesPerson] = [excel.Sales Person]").Select("SalesPerson", "Weight").Build("FDS-Created-by-NodeBulder")
-'			#End Region
+			#End Region
 
 			federationDS.Queries.Add(mainQueryCreatedByApi)
 			federationDS.Queries.Add(mainQueryCreatedByNodeBuilder)
