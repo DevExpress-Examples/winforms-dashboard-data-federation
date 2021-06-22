@@ -6,7 +6,6 @@ Imports DevExpress.DataAccess.ConnectionParameters
 Imports DevExpress.DataAccess.Excel
 Imports DevExpress.DataAccess.Json
 Imports DevExpress.DataAccess.Sql
-
 Imports System
 
 Namespace DataFederationExample
