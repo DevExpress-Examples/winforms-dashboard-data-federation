@@ -1,11 +1,12 @@
-﻿Imports Microsoft.VisualBasic
 Imports DevExpress.DashboardCommon
-Imports DevExpress.DataAccess.ConnectionParameters
 Imports DevExpress.DataAccess.DataFederation
+Imports DevExpress.XtraEditors
+Imports Microsoft.VisualBasic
+Imports DevExpress.DataAccess.ConnectionParameters
 Imports DevExpress.DataAccess.Excel
 Imports DevExpress.DataAccess.Json
 Imports DevExpress.DataAccess.Sql
-Imports DevExpress.XtraEditors
+
 Imports System
 
 Namespace DataFederationExample
