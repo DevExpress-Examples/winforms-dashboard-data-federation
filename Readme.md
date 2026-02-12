@@ -44,7 +44,7 @@ The application creates a simple dashboard at runtime, binds it to the [Dashboar
 - [Federated Data Source](https://docs.devexpress.com/Dashboard/400924)
 - [Data Sources](https://docs.devexpress.com/Dashboard/116522)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-dashboard-data-federation&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=winforms-dashboard-data-federation&~~~was_helpful=no)
 
